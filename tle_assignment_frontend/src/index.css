@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+  }
+  
+  .color-empty-light {
+    fill: #ebedf0;
+  }
+
+  .color-empty-dark {
+    fill: black;
+  }
+  
+  .color-scale-1-light {
+    fill: #c6e48b;
+  }
+  
+  .color-scale-2-light {
+    fill: #7bc96f;
+  }
+  
+  .color-scale-3-light {
+    fill: #239a3b;
+  }
+  
+  .color-scale-4-light {
+    fill: #196127;
+  }
+  
+  .color-scale-1-dark {
+    fill: #c6e48b;
+  }
+  
+  .color-scale-2-dark {
+    fill: #7bc96f;
+  }
+  
+  .color-scale-3-dark {
+    fill: #239a3b;
+  }
+  
+  .color-scale-4-dark {
+    fill: #196127;
+  }
+  
