@@ -9,7 +9,7 @@ Built entirely with the MERN stack, this application showcases strong proficienc
 Experience the system in action and observe its comprehensive functionalities:
 
 * Live Demo: [https://tle-sahil.onrender.com](https://tle-sahil.onrender.com)
-* Product Walkthrough Video:
+* Project Demo Video:
   
 [![Watch Video](https://img.youtube.com/vi/hD2oTXXDEvA/0.jpg)](https://www.youtube.com/watch?v=hD2oTXXDEvA)
 
