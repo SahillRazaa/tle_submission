@@ -1,13 +1,17 @@
 # Student Progress Management System
 
-This repository contains the complete codebase for a robust Student Progress Management System, developed as a comprehensive solution for a Full Stack Developer recruitment assignment. The system excels at tracking and analyzing student performance, with a particular emphasis on competitive programming progress through synchronized Codeforces data. Built entirely with the MERN stack, this application showcases strong proficiency in both frontend and backend development, along with a commitment to security, user experience, and maintainability.
+This repository contains the complete codebase for a robust Student Progress Management System, developed as a comprehensive solution for a Full Stack Developer recruitment assignment. The system excels at tracking and analyzing student performance, with a particular emphasis on competitive programming progress through synchronized Codeforces data.
+
+Built entirely with the MERN stack, this application showcases strong proficiency in both frontend and backend development, along with a commitment to security, user experience, and maintainability.
 
 ## Live Demo & Product Walkthrough
 
 Experience the system in action and observe its comprehensive functionalities:
 
-* Live Demo: \[INSERT YOUR LIVE DEMO LINK HERE](https://your-deployed-app.netlify.app)
-* Product Walkthrough Video: \[INSERT YOUR YOUTUBE VIDEO LINK HERE](https://www.youtube.com/watch?v=your_video_id)
+* Live Demo: [https://tle-sahil.onrender.com](https://tle-sahil.onrender.com)
+* Product Walkthrough Video:
+  
+[![Watch Video](https://img.youtube.com/vi/hD2oTXXDEvA/0.jpg)](https://www.youtube.com/watch?v=hD2oTXXDEvA)
 
 ## Key Features & Highlights
 
@@ -102,7 +106,7 @@ This system goes beyond the core requirements, delivering an enterprise-ready ap
 * **Custom Branding**: The application's favicon has been customized with a unique logo and the developer's name, establishing a distinct brand identity for this submission.
 * **Redux for State Management**: Leveraged Redux for advanced and efficient state management across complex components, ensuring predictable data flow and persistence for critical application states.
 
-## 🛠Technologies Used
+## Technologies Used
 
 The project leverages a modern, robust, and well-integrated technology stack:
 
@@ -112,8 +116,10 @@ The project leverages a modern, robust, and well-integrated technology stack:
 * Redux: For centralized, predictable, and scalable state management across the application.
 * Axios: For making efficient HTTP requests to the backend APIs.
 * Chart.js / Recharts: For powerful and visually appealing data visualizations (rating graphs, bar charts).
-* Tailwind CSS: A utility-first CSS framework for rapid and responsive UI development, ensuring a modern and adaptive design.
+* styled-components: For Design and Animations
+* react-router-dom: For Client-side routing
 * react-toastify: For elegant and user-friendly toast notifications.
+* papaparse: To work with JSON and CSV
 
 **Backend:**
 
@@ -122,20 +128,17 @@ The project leverages a modern, robust, and well-integrated technology stack:
 * MongoDB: A flexible NoSQL database used for storing all student data, Codeforces contest information, and user submissions.
 * Mongoose: An elegant MongoDB object modeling tool for Node.js, providing schema-based solutions to model application data.
 * jsonwebtoken (JWT): For implementing secure user authentication and session management.
-* bcryptjs: For hashing passwords securely.
 * node-cron: For scheduling automated daily Codeforces data synchronization tasks.
-* nodemailer: For sending automated inactivity reminder emails to students.
 * axios: For making HTTP requests to the Codeforces API from the backend.
-* csv-stringify: For generating CSV files for data export.
 
-## ⚙️ Installation and Local Setup
+## Installation and Local Setup
 
 To get a local copy up and running, follow these simple steps.
 
 **Prerequisites**
 
 * Node.js (LTS version recommended)
-* npm or Yarn
+* npm
 * MongoDB (Community Edition or MongoDB Atlas account for cloud-hosted DB)
 
 1.  **Clone the Repository**
@@ -143,8 +146,8 @@ To get a local copy up and running, follow these simple steps.
     Begin by cloning the project repository to your local machine:
 
     ```bash
-    git clone [https://github.com/SahillRazaa/your-single-repo-name.git](https://github.com/SahillRazaa/your-single-repo-name.git)
-    cd your-single-repo-name
+    git clone https://github.com/SahillRazaa/tle_submission.git
+    cd tle_submission
     ```
 2.  **Backend Setup (backend/)**
 
@@ -160,27 +163,17 @@ To get a local copy up and running, follow these simple steps.
 
     ```bash
     npm install
-    # or
-    yarn install
     ```
 
     **Environment Variables Configuration:**
 
-    Create a `.env` file in the `backend/` directory. This file will store your sensitive configuration variables.
+    Create a .env file in the backend/ directory by copying the example file:
 
     ```
-    PORT=5000
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_jwt_secret_key
-    ADMIN_EMAIL=admin@example.com
-    ADMIN_PASSWORD=adminpassword
-    CODEFORCES_API_BASE_URL=[https://codeforces.com/api/](https://codeforces.com/api/)
-    EMAIL_USER=your_email@example.com # Email address for sending reminders (e.g., Gmail)
-    EMAIL_PASS=your_email_app_password # App password if using Gmail (or actual password if not app-specific)
-    CRON_SCHEDULE="0 2 * * *" # Example: Runs every day at 2 AM. Adjust as needed (e.g., "*/5 * * * *" for every 5 minutes)
+    cp .env.example .env
     ```
 
-    **Important:** Replace `your_mongodb_connection_string`, `your_jwt_secret_key`, and your email credentials (`EMAIL_USER`, `EMAIL_PASS`) with your actual values. For `EMAIL_PASS`, if using Gmail, it's highly recommended to generate an [App Password](https://support.google.com/accounts/answer/185833?hl=en) instead of using your main Gmail password for security.
+    **Important:** Replace `MONGO_URI`, `BREVO_API`, `JWT_SECRET`, and your email credentials (`USER_SEC`, `ADMIN_SEC`) with your actual values. For `EMAIL_PASS`, if using Gmail, it's highly recommended to generate an [App Password](https://support.google.com/accounts/answer/185833?hl=en) instead of using your main Gmail password for security.
 
     **Run the Backend Server:**
 
@@ -188,11 +181,9 @@ To get a local copy up and running, follow these simple steps.
 
     ```bash
     npm start
-    # or
-    yarn start
     ```
 
-    The backend server will now be running on `http://localhost:5000` (or the port you specified in `PORT`).
+    The backend server will now be running on `http://localhost:8000` (or the port you specified in `PORT`).
 3.  **Frontend Setup (frontend/)**
 
     Open a new terminal and navigate into the frontend directory:
@@ -207,16 +198,14 @@ To get a local copy up and running, follow these simple steps.
 
     ```bash
     npm install
-    # or
-    yarn install
     ```
 
     **Environment Variables Configuration:**
 
-    Create a `.env` file in the `frontend/` directory.
+    Create a .env file in the backend/ directory by copying the example file:
 
     ```
-    REACT_APP_BACKEND_URL=http://localhost:5000/api
+    cp .env.example .env
     ```
 
     Ensure this URL matches your backend server's address.
@@ -226,9 +215,7 @@ To get a local copy up and running, follow these simple steps.
     Start the React development server:
 
     ```bash
-    npm start
-    # or
-    yarn start
+    npm run dev
     ```
 
     The frontend application will open automatically in your web browser, usually at `http://localhost:3000`.
@@ -239,74 +226,39 @@ The backend provides a comprehensive set of RESTful APIs to manage student data,
 
 **Authentication:**
 
-* `POST /api/auth/login`: Admin login.
-* `GET /api/auth/logout`: Admin logout.
-* `GET /api/auth/check`: Check authentication status.
+* `POST /admin/login`: Admin login.
 
 **Student Management:**
 
-* `GET /api/students`: Get all students with pagination, search, and filters.
-* `POST /api/students`: Add a new student.
-* `GET /api/students/:id`: Get a single student's details.
-* `PUT /api/students/:id`: Update student details.
-* `DELETE /api/students/:id`: Delete a student.
+* `POST /students/create`:  Add a new student.
+* `DELETE /students/delete/:handle`: Delete a student.
+* `GET /students/all`: Get all student's details.
+* `PUT /students/update/:handle`: Update student details.
+* `PUT /students/reminderUpdate/:handle`: update student reminder.
 
-**Codeforces & Data Sync:**
+**Contest Details**
 
-* `POST /api/students/:id/sync-codeforces`: Manually trigger Codeforces data sync for a specific student.
-* `PUT /api/cron/configure`: Configure cron job schedule/frequency.
+* `GET /contest/all`: Get all contest data.
 
-**Data Export:**
+**Submission Details**
 
-* `GET /api/data/download-csv`: Download all student data as CSV.
+* `GET /submission/all`: Get all submission data
 
-**Inactivity Reminders:**
+**Email Reminder**
 
-* `PUT /api/students/:id/toggle-email-reminders`: Toggle inactivity email reminders for an individual student.
+* `POST /email/reminder`: Send reminder to enabled students
 
-(Detailed API documentation, including request/response formats, authentication requirements, and error handling, can be found within the backend code comments.)
+**CRON Job Updates:**
 
-## Project Structure
+* `GET /cron-config/all`: Get all Cron Jobs.
+* `GET /cron-config/:taskName`: Get a Specific Cron Job.
+* `PUT /cron-config/:taskName`: Update a particular CRON Job.
 
-The repository maintains a clear and modular structure, facilitating independent development, deployment, and easy understanding of both frontend and backend components.
-
-```plaintext
-├── backend/
-│   ├── config/                  # Database connection, environment setup
-│   ├── controllers/             # Logic for API endpoints
-│   ├── middleware/              # Authentication and error handling middleware
-│   ├── models/                  # Mongoose schemas for MongoDB
-│   ├── routes/                  # API route definitions
-│   ├── services/                # Business logic, Codeforces API interaction, cron jobs, email sending
-│   ├── utils/                   # Helper functions
-│   ├── .env.example             # Template for environment variables
-│   ├── package.json             # Backend dependencies and scripts
-│   └── server.js                # Main backend application file
-│
-├── frontend/
-│   ├── public/                  # Static assets
-│   ├── src/
-│   │   ├── assets/              # Images, icons, fonts
-│   │   ├── components/          # Reusable UI components
-│   │   ├── context/             # React Context for themes, etc.
-│   │   ├── hooks/               # Custom React hooks
-│   │   ├── pages/               # Top-level page components (Login, Dashboard, StudentProfile)
-│   │   ├── redux/               # Redux store, reducers, actions
-│   │   ├── services/            # API client for frontend to interact with backend
-│   │   ├── styles/              # Tailwind CSS configuration, custom CSS
-│   │   ├── App.js               # Main React application component
-│   │   └── index.js             # Entry point for React app
-│   ├── .env.example             # Template for frontend environment variables
-│   ├── package.json             # Frontend dependencies and scripts
-│   └── README.md                # Frontend-specific README (optional, content merged into main)
-│
-└── README.md                    # This main README file
-```
 ## Contact
 For any questions, further discussions, or collaboration opportunities, please feel free to reach out:
 
 Sahil Raza Ansari
-  - Email: [Your Email Address]
-  - LinkedIn: [Your LinkedIn Profile URL]
+  - Email: [connectwithsahil007@gmail.com](connectwithsahil007@gmail.com)
+  - LinkedIn: [https://www.linkedin.com/in/sahil-raza-ansari-7b1b98270/](https://www.linkedin.com/in/sahil-raza-ansari-7b1b98270/)
 
 Thank you for your time and consideration. I am confident that my work demonstrates a strong commitment to delivering high-quality, scalable, and user-centric full-stack solutions.
